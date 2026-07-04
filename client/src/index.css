@@ -1,0 +1,371 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ============================================================
+   AZELIA STUDIO — Quiet Luxury Editorial
+   Design tokens: warm parchment ground, sage structural accent,
+   olive dark, terracotta urgency, Cormorant Garamond + DM Sans
+   ============================================================ */
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  /* Azelia Studio palette */
+  --az-parchment: #F5F0E8;
+  --az-cream: #FDFAF4;
+  --az-ink: #2C2416;
+  --az-sage: #7A8C6E;
+  --az-sage-light: #A8B89A;
+  --az-olive: #4A5240;
+  --az-terracotta: #B5613A;
+  --az-gold: #C9A96E;
+  --az-gold-light: #E8D5A8;
+  --az-muted-text: #6B6355;
+
+  /* Tailwind token mapping */
+  --radius: 0.25rem;
+  --background: oklch(0.97 0.008 80);
+  --foreground: oklch(0.18 0.02 65);
+  --card: oklch(0.99 0.005 80);
+  --card-foreground: oklch(0.18 0.02 65);
+  --popover: oklch(0.99 0.005 80);
+  --popover-foreground: oklch(0.18 0.02 65);
+  --primary: oklch(0.52 0.06 145);
+  --primary-foreground: oklch(0.99 0.005 80);
+  --secondary: oklch(0.93 0.01 80);
+  --secondary-foreground: oklch(0.3 0.02 65);
+  --muted: oklch(0.93 0.01 80);
+  --muted-foreground: oklch(0.48 0.02 65);
+  --accent: oklch(0.87 0.04 145);
+  --accent-foreground: oklch(0.3 0.04 145);
+  --destructive: oklch(0.55 0.18 30);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.88 0.015 80);
+  --input: oklch(0.88 0.015 80);
+  --ring: oklch(0.52 0.06 145);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--az-parchment);
+    color: var(--az-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  a[href] {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 3rem;
+      padding-right: 3rem;
+      max-width: 1100px;
+    }
+  }
+}
+
+/* ============================================================
+   DESKTOP: CTA buttons use &nbsp; between Free and Strategy
+   so they flow as one line on desktop naturally
+   ============================================================ */
+
+/* ============================================================
+   GLOBAL TYPOGRAPHY
+   ============================================================ */
+.az-display {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.az-body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.az-label {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   SECTION DIVIDER
+   ============================================================ */
+.az-rule {
+  width: 100%;
+  height: 1px;
+  background-color: var(--az-sage);
+  opacity: 0.3;
+}
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+.az-fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.55s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.az-fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .az-fade-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ============================================================
+   CTA BUTTON STYLES
+   ============================================================ */
+.az-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--az-olive);
+  color: var(--az-cream);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  padding: 0.875rem 2rem;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.16s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.2s ease;
+  text-decoration: none;
+  width: 100%;
+}
+.az-btn-primary:hover {
+  background-color: var(--az-ink);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(44, 36, 22, 0.18);
+}
+.az-btn-primary:active {
+  transform: scale(0.97);
+}
+
+.az-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: var(--az-olive);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  padding: 0.875rem 2rem;
+  border-radius: 2px;
+  border: 1.5px solid var(--az-sage);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.16s ease, color 0.2s ease;
+  text-decoration: none;
+  width: 100%;
+}
+.az-btn-outline:hover {
+  background-color: var(--az-sage);
+  color: var(--az-cream);
+  transform: translateY(-2px);
+}
+.az-btn-outline:active {
+  transform: scale(0.97);
+}
+
+/* ============================================================
+   TICKER BAR
+   ============================================================ */
+.az-ticker-track {
+  display: flex;
+  width: max-content;
+  animation: az-ticker 35s linear infinite;
+}
+.az-ticker-track:hover {
+  animation-play-state: paused;
+}
+@keyframes az-ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   CAROUSEL
+   ============================================================ */
+.az-carousel-track {
+  display: flex;
+  gap: 1.25rem;
+  animation: az-carousel 40s linear infinite;
+  width: max-content;
+}
+.az-carousel-track:hover {
+  animation-play-state: paused;
+}
+@keyframes az-carousel {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   ACCORDION
+   ============================================================ */
+.az-accordion-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.25s ease-out, opacity 0.2s ease;
+  opacity: 0;
+}
+.az-accordion-content.open {
+  max-height: 600px;
+  opacity: 1;
+}
+
+/* ============================================================
+   PRICING CARD
+   ============================================================ */
+.az-pricing-signature {
+  position: relative;
+  background-color: var(--az-cream);
+  border: 1.5px solid var(--az-sage);
+  border-radius: 4px;
+  box-shadow: 0 8px 40px rgba(74, 82, 64, 0.12);
+}
+
+/* ============================================================
+   POPUP OVERLAY
+   ============================================================ */
+.az-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(44, 36, 22, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.az-popup-overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+.az-popup-card {
+  background: var(--az-cream);
+  border-radius: 4px;
+  max-width: 480px;
+  width: 100%;
+  padding: 2.5rem 2rem;
+  transform: translateY(20px) scale(0.97);
+  transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+}
+.az-popup-overlay.visible .az-popup-card {
+  transform: translateY(0) scale(1);
+}
+
+/* ============================================================
+   WHATSAPP BUBBLE
+   ============================================================ */
+.az-wa-bubble {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 56px;
+  height: 56px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+  z-index: 900;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+.az-wa-bubble:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.45);
+}
+.az-wa-bubble:active {
+  transform: scale(0.97);
+}
+
+/* ============================================================
+   COUNTDOWN DIGITS
+   ============================================================ */
+.az-countdown-digit {
+  display: inline-block;
+  min-width: 2ch;
+  text-align: center;
+  transition: transform 0.15s ease-out;
+}
