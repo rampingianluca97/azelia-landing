@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: azelia-landing
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # Impostate questi due valori dal pannello Render (Environment).
+      # sync:false = Render li chiede a te e NON li salva nel repository.
+      - key: MAILERLITE_API_KEY
+        sync: false
+      - key: MAILERLITE_GROUP_ID
+        sync: false
