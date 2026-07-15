@@ -133,7 +133,7 @@ export default function Pricing() {
                     textDecorationColor: "var(--az-terracotta)",
                   }}
                 >
-                  £1,200
+                  £2,241
                 </div>
               </div>
               <div
@@ -155,7 +155,7 @@ export default function Pricing() {
                   marginTop: "0.3rem",
                 }}
               >
-                You save £603
+                You save £1,644
               </div>
             </div>
 
@@ -164,7 +164,7 @@ export default function Pricing() {
             {/* Includes */}
             <div style={{ display: "flex", flexDirection: "column", gap: "0.875rem", marginBottom: "1.5rem" }}>
               {[
-                "Everything in Showcase, plus up to 5+ pages",
+                "Everything in Showcase, plus up to 5 pages",
                 "Brand story, portfolio, client journey, trust section, FAQ",
                 "Google Business Profile setup",
                 "Launch support + 60 days aftercare (2 changes/month)",

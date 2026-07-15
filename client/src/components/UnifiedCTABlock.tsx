@@ -8,17 +8,19 @@
  */
 
 import { openCalendlyPopup } from "@/hooks/useCalendly";
-const BUY_NOW_URL = "https://buy.stripe.com/8x27sK1vq0Bm8GF8MtaZi00"; // TODO: replace with real payment link
+const BUY_NOW_URL = "https://buy.stripe.com/8x27sK1vq0Bm8GF8MtaZi00";
+const SHOWCASE_BUY_URL = "https://buy.stripe.com/8x2bJ0ca483O1ed9QxaZi01";
 
 interface Props {
   variant?: "light" | "full" | "dark";
 }
 
 const SIGNATURE_INCLUDES = [
-  { text: "Custom website design & build (up to 5+ pages, mobile-optimised)", value: "£1,000" },
+  { text: "Custom website design & build (up to 5 pages, mobile-optimised)", value: "£1,000" },
   { text: "Conversion copy & messaging (done for you)", value: "£400" },
-  { text: "Google Business Profile setup", value: "£150" },
   { text: "Easy enquiry & booking setup (Calendly / enquiry integration)", value: "£97" },
+  { text: "Google Business Profile setup", value: "£150" },
+  { text: "Done-for-you launch + settling-in support", value: "£200" },
 ];
 
 const SHOWCASE_INCLUDES = [
@@ -189,13 +191,13 @@ export default function UnifiedCTABlock({ variant = "light" }: Props) {
                   <div
                     style={{
                       fontFamily: "'DM Sans', sans-serif",
-                      fontSize: "1.2rem",
+                      fontSize: "1.05rem",
                       color: "var(--az-muted-text)",
                       textDecoration: "line-through",
                       textDecorationColor: "var(--az-terracotta)",
                     }}
                   >
-                    £1,200
+                    £2,241
                   </div>
                 </div>
                 <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem", color: "var(--az-muted-text)", marginBottom: "0.4rem" }}>
@@ -215,7 +217,7 @@ export default function UnifiedCTABlock({ variant = "light" }: Props) {
                     letterSpacing: "0.08em",
                   }}
                 >
-                  You save £603
+                  You save £1,644
                 </div>
               </div>
 
@@ -306,8 +308,8 @@ export default function UnifiedCTABlock({ variant = "light" }: Props) {
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1rem" }}>
                   {[
-                    { text: "Done-for-you launch + 60 days aftercare (2 changes/month)", value: "£250" },
-                    { text: "Always-On Chatbot Assistant", value: "£150" },
+                    { text: "On-page SEO setup", value: "£197" },
+                    { text: "Always-On Chatbot Assistant", value: "£197" },
                   ].map((b, i) => (
                     <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "0.75rem" }}>
                       <div style={{ display: "flex", alignItems: "center", gap: "0.625rem" }}>
@@ -321,7 +323,7 @@ export default function UnifiedCTABlock({ variant = "light" }: Props) {
                   ))}
                 </div>
                 <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "1rem", color: "var(--az-ink)", fontWeight: 700 }}>
-                  Total bonus value: <span style={{ color: "#8B6914", fontSize: "1.05rem" }}>£400 included free</span>
+                  Total bonus value: <span style={{ color: "#8B6914", fontSize: "1.05rem" }}>£394 included free</span>
                 </div>
               </div>
 
@@ -342,7 +344,7 @@ export default function UnifiedCTABlock({ variant = "light" }: Props) {
                     Total value
                   </div>
                   <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.85rem", color: "rgba(253,250,244,0.45)", textDecoration: "line-through" }}>
-                    £2,047
+                    £2,241
                   </div>
                 </div>
                 <div style={{ textAlign: "right" }}>
@@ -433,7 +435,7 @@ export default function UnifiedCTABlock({ variant = "light" }: Props) {
                   (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
                 }}
               >
-                Buy Now — £597 (Save £603)
+                Buy Now — £597 (Save £1,644)
               </a>
 
               {/* Money-back guarantee */}
@@ -519,7 +521,7 @@ export default function UnifiedCTABlock({ variant = "light" }: Props) {
               ))}
             </div>
             <a
-              href="#" onClick={openCalendlyPopup}
+              href={SHOWCASE_BUY_URL}
               target="_blank"
               rel="noopener noreferrer"
               style={{

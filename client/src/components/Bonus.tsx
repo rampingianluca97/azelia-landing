@@ -71,18 +71,18 @@ export default function Bonus() {
 
           {/* Bonus items */}
           <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-            {[
+              {[
               {
-                icon: "🚀",
-                title: "Done-for-you launch + 60 days aftercare.",
-                body: "We get it live properly, then handle bug fixes and up to 2 small changes a month for the first two months.",
-                value: "£250",
+                icon: "🔍",
+                title: "On-page SEO setup.",
+                body: "So your site is built to be found on Google from day one.",
+                value: "£197",
               },
               {
                 icon: "💬",
                 title: "Always-On Chatbot Assistant.",
                 body: "So visitors get their questions answered instantly, even when you're with a client.",
-                value: "£150",
+                value: "£197",
               },
             ].map((item, i) => (
               <div
@@ -151,8 +151,8 @@ export default function Bonus() {
               fontWeight: 600,
             }}
           >
-            Total bonus value:{" "}
-            <span style={{ color: "var(--az-gold-light)" }}>£400 included free</span>
+          Total bonus value:{" "}
+          <span style={{ color: "var(--az-gold-light)" }}>£394 included free</span>
           </div>
         </div>
       </div>

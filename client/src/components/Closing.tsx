@@ -162,7 +162,7 @@ export default function Closing() {
             }}
           >
             <a
-              href="mailto:azeliastudio@outlook.com"
+              href="mailto:hello@azeliastudio.com"
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: "0.85rem",
@@ -170,7 +170,7 @@ export default function Closing() {
                 textDecoration: "none",
               }}
             >
-              azeliastudio@outlook.com
+              hello@azeliastudio.com
             </a>
             <a
               href={WA_URL}

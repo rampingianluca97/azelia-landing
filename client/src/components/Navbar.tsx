@@ -9,6 +9,13 @@ import { useEffect, useState } from "react";
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663411960285/niVgumLaoaWhy7ZXfDsnG9/azelia-logo-icon-a4HewB6goFD25KZz3cgLEb.png";
 import { openCalendlyPopup } from "@/hooks/useCalendly";
 
+// Opens the lead capture popup manually
+function openMockupPopup() {
+  // Remove the session key so it can show again, then dispatch a custom event
+  sessionStorage.removeItem("azelia_popup_shown");
+  window.dispatchEvent(new CustomEvent("azelia:open-popup"));
+}
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -116,6 +123,37 @@ export default function Navbar() {
             4 SLOTS LEFT
           </span>
 
+          {/* Free Mockup — desktop only, outline style */}
+          <button
+            onClick={openMockupPopup}
+            className="nav-mockup-btn"
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontWeight: 600,
+              fontSize: "0.8rem",
+              letterSpacing: "0.04em",
+              color: scrolled ? "var(--az-olive)" : "rgba(253,250,244,0.85)",
+              backgroundColor: "transparent",
+              padding: "0.55rem 1.1rem",
+              borderRadius: "2px",
+              border: `1.5px solid ${scrolled ? "var(--az-sage)" : "rgba(253,250,244,0.4)"}`,
+              cursor: "pointer",
+              transition: "all 0.2s ease",
+              whiteSpace: "nowrap",
+              display: "none",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.backgroundColor = scrolled ? "var(--az-sage)" : "rgba(253,250,244,0.1)";
+              (e.currentTarget as HTMLElement).style.color = scrolled ? "#FDFAF4" : "#FDFAF4";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
+              (e.currentTarget as HTMLElement).style.color = scrolled ? "var(--az-olive)" : "rgba(253,250,244,0.85)";
+            }}
+          >
+            Free Mockup
+          </button>
+
           {/* Book Now — ALWAYS visible */}
           <button
             onClick={openCalendlyPopup}
@@ -152,6 +190,9 @@ export default function Navbar() {
       <style>{`
         @media (min-width: 500px) {
           .nav-scarcity { display: inline !important; }
+        }
+        @media (min-width: 760px) {
+          .nav-mockup-btn { display: inline-flex !important; align-items: center; }
         }
       `}</style>
     </nav>

@@ -7,7 +7,7 @@ import { openCalendlyPopup } from "@/hooks/useCalendly";
 
 const includes = [
   {
-    title: "Up to 5+ pages, designed to convert.",
+    title: "Up to 5 pages, designed to convert.",
     body: "Not just beautiful, structured so the right client moves from curious to enquiring.",
   },
   {

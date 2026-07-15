@@ -64,13 +64,21 @@ export function LeadCapturePopup() {
       if (e.clientY <= 0 && document.visibilityState === "visible") show();
     };
 
+    // Manual trigger from navbar "Free Mockup" button
+    const onManualOpen = () => {
+      shownRef.current = false;
+      setVisible(true);
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
     document.addEventListener("mouseleave", onMouseLeave);
+    window.addEventListener("azelia:open-popup", onManualOpen);
 
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
       window.removeEventListener("scroll", onScroll);
       document.removeEventListener("mouseleave", onMouseLeave);
+      window.removeEventListener("azelia:open-popup", onManualOpen);
     };
   }, []);
 

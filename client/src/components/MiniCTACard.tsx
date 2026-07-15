@@ -139,7 +139,7 @@ export default function MiniCTACard({ variant = "light" }: MiniCTACardProps) {
                   textDecorationColor: "var(--az-terracotta)",
                 }}
               >
-                £1,200
+                £2,241
               </div>
             </div>
             <div
@@ -151,13 +151,13 @@ export default function MiniCTACard({ variant = "light" }: MiniCTACardProps) {
                 marginBottom: "1.5rem",
               }}
             >
-              or £149 deposit, £448 on completion · you save £603
+              or £149 deposit, £448 on completion · you save £1,644
             </div>
 
             {/* Key includes — condensed */}
             <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem", marginBottom: "1.5rem" }}>
               {[
-                "Up to 5+ pages, designed to convert",
+                "Up to 5 pages, designed to convert",
                 "Brand story, portfolio, client journey, trust section, FAQ",
                 "Google Business Profile + 60 days aftercare",
                 "Bonus within 24h: Calendly + Chatbot (worth £444)",
