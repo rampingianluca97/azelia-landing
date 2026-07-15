@@ -38,6 +38,7 @@
 :root {
   /* Azelia Studio palette */
   --az-parchment: #F5F0E8;
+  --az-sand: #EFE7DA; /* subtly deeper parchment for offer sections */
   --az-cream: #FDFAF4;
   --az-ink: #2C2416;
   --az-sage: #7A8C6E;

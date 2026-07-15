@@ -32,7 +32,7 @@ const SHOWCASE_INCLUDES = [
 
 export default function UnifiedCTABlock({ variant = "light" }: Props) {
   const isDark = variant === "dark";
-  const sectionBg = isDark ? "var(--az-olive)" : "var(--az-parchment)";
+  const sectionBg = isDark ? "var(--az-olive)" : "var(--az-sand)";
   const borderColor = isDark ? "rgba(168,184,154,0.15)" : "rgba(122,140,110,0.2)";
   const headingColor = isDark ? "#FDFAF4" : "var(--az-ink)";
   const labelColor = isDark ? "var(--az-sage-light)" : "var(--az-sage)";

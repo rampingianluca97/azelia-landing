@@ -108,16 +108,16 @@ export default function Navbar() {
             style={{
               fontFamily: "'DM Sans', sans-serif",
               fontSize: "0.88rem",
-              color: "var(--az-terracotta)",
+              color: "var(--az-cream)",
               fontWeight: 800,
               display: "none",
               whiteSpace: "nowrap",
               letterSpacing: "0.02em",
               textTransform: "uppercase",
-              backgroundColor: "rgba(181,97,58,0.1)",
+              backgroundColor: "var(--az-terracotta)",
               padding: "0.3rem 0.75rem",
               borderRadius: "2px",
-              border: "1px solid rgba(181,97,58,0.3)",
+              border: "1px solid var(--az-terracotta)",
             }}
           >
             4 SLOTS LEFT
