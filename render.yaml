@@ -3,7 +3,9 @@ services:
     name: azelia-landing
     runtime: node
     plan: free
-    buildCommand: npm install && npm run build
+    # --include=dev forces build tools (vite, esbuild, tsc) to install even
+    # though NODE_ENV=production would otherwise skip devDependencies.
+    buildCommand: npm install --include=dev && npm run build
     startCommand: npm start
     envVars:
       - key: NODE_ENV
